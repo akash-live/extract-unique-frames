@@ -32,7 +32,7 @@ def framecapture(path):
                 if compare_mse(nextimage, image) > 2:
                     print(compare_mse(nextimage, image))
                     # Saves the frames with frame-count
-                    cv2.imwrite("C:\\Users\\E216878\\PycharmProjects\\frames\\out\\"
+                    cv2.imwrite("<path to extract frames>"
                                 + file + "_frame%d.jpg" % count, nextimage)
                     # else:
                     image = nextimage
@@ -47,4 +47,4 @@ def framecapture(path):
 if __name__ == '__main__':
     # Calling the function
 
-    framecapture("C:\\Backup\\Study\\test")
+    framecapture("<source video list path>")
