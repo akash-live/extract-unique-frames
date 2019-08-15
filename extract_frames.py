@@ -1,7 +1,7 @@
 # Program To Read video and Extract Unique Frames
 import cv2
 import os
-from skimage.measure import compare_mse, compare_nrmse, compare_ssim, compare_psnr
+from skimage.measure import compare_mse
 
 
 # Function to extract frames
