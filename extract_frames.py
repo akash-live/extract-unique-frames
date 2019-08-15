@@ -32,8 +32,7 @@ def framecapture(path):
                 if compare_mse(nextimage, image) > 2:
                     print(compare_mse(nextimage, image))
                     # Saves the frames with frame-count
-                    cv2.imwrite("<path to extract frames>"
-                                + file + "_frame%d.jpg" % count, nextimage)
+                    cv2.imwrite(path + "//frames//" + file + "_frame%d.jpg" % count, nextimage)
                     # else:
                     image = nextimage
                 # Advance 60 frames = 1 sec
