@@ -32,11 +32,12 @@ def framecapture(path):
 
             try:
                 # Comparing frames
-                if compare_mse(nextimage, image) > 2:
+                if compare_mse(nextimage, image) > 3:
                     print("Diffrence Factor : " + str(compare_mse(nextimage, image)))
                     # Saves the frames with frame-count
                     cv2.imwrite(path + '\\Frames\\' + file + "_frame%d.jpg" % count, nextimage)
-                    print(path + '\\Frames\\' + file + "_frame%d.jpg" % count)
+                    print("Path : " + path + '\\Frames\\' + file + "_frame%d.jpg" % count)
+                    print("--------------------------------------------------------")
                     # else:
                     image = nextimage
                 # Advance 60 frames = 1 sec
@@ -44,10 +45,11 @@ def framecapture(path):
                 vidObj.set(1, count)
             except AttributeError:
                 print('Next')
+                print("--------------------------------------------------------")
 
 
 # Driver Code
 if __name__ == '__main__':
     # Calling the function
 
-    framecapture("<Directory containig videos>")
+    framecapture(input("Enter path : "))
