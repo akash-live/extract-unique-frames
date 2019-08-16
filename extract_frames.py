@@ -50,4 +50,4 @@ def framecapture(path):
 if __name__ == '__main__':
     # Calling the function
 
-    framecapture("Directory containig videos")
+    framecapture("<Directory containig videos>")
