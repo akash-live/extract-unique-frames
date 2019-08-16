@@ -36,6 +36,15 @@ def framecapture(path):
                     print("Diffrence Factor : " + str(compare_mse(nextimage, image)))
                     # Saves the frames with frame-count
                     cv2.imwrite(path + '\\Frames\\' + file + "_frame%d.jpg" % count, nextimage)
+
+                    # resize image
+                    # scale_percent = 20  # percent of original size
+                    # width = int(nextimage.shape[1] * scale_percent / 100)
+                    # height = int(nextimage.shape[0] * scale_percent / 100)
+                    # dim = (width, height)
+                    # cv2.imshow('image', cv2.resize(nextimage, dim, interpolation=cv2.INTER_AREA))
+                    # cv2.waitKey(1000)
+
                     print("Path : " + path + '\\Frames\\' + file + "_frame%d.jpg" % count)
                     print("--------------------------------------------------------")
                     # else:
@@ -46,7 +55,7 @@ def framecapture(path):
             except AttributeError:
                 print('Next')
                 print("--------------------------------------------------------")
-
+    cv2.destroyAllWindows()
 
 # Driver Code
 if __name__ == '__main__':
