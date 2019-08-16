@@ -1,7 +1,7 @@
 # Program To Read video and Extract Unique Frames
 import cv2
 import os
-from skimage.measure import compare_mse
+from skimage.measure import compare_mse, compare_nrmse, compare_ssim, compare_psnr
 
 
 # Function to extract frames
@@ -22,7 +22,10 @@ def framecapture(path):
         # Get first frame
         # success = 1
         success, image = vidObj.read()
-
+        try:
+            os.mkdir(path + "\\Frames")
+        except FileExistsError:
+            pass
         while success:
             # function extract frames
             success, nextimage = vidObj.read()
@@ -30,9 +33,10 @@ def framecapture(path):
             try:
                 # Comparing frames
                 if compare_mse(nextimage, image) > 2:
-                    print(compare_mse(nextimage, image))
+                    print("Diffrence Factor : " + str(compare_mse(nextimage, image)))
                     # Saves the frames with frame-count
-                    cv2.imwrite(path + "//frames//" + file + "_frame%d.jpg" % count, nextimage)
+                    cv2.imwrite(path + '\\Frames\\' + file + "_frame%d.jpg" % count, nextimage)
+                    print(path + '\\Frames\\' + file + "_frame%d.jpg" % count)
                     # else:
                     image = nextimage
                 # Advance 60 frames = 1 sec
@@ -46,4 +50,4 @@ def framecapture(path):
 if __name__ == '__main__':
     # Calling the function
 
-    framecapture("<source video list path>")
+    framecapture("Directory containig videos")
