@@ -1,2 +1,2 @@
 # extract-unique-frames
-This program will extract the unique frames from a video
+This script can be used to extract unique frames from a video file/directory.
